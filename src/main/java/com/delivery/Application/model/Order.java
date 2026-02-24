@@ -36,11 +36,11 @@ public class Order  {
     private Address deliveryAddress;
 
     @OneToMany
-    private List<Orderitem> orderitems;
+    private List<OrderItem> orderitems;
 
     private int totalItem;
 
-    private int totalPrice;
+    private Long totalPrice;
 
 
 
