@@ -29,7 +29,7 @@ public class FoodController {
 
     @GetMapping("/search")
     public ResponseEntity<List<Food>> createFood(@RequestParam String name,
-                                           @RequestHeader("Authorization")String jwt){
+                                           @RequestHeader("Authorization")String jwt) throws Exception {
         User user = userService.findUserByJwtToken(jwt);
         List<Food> foods = foodService.searchFood(name);
 
@@ -44,7 +44,7 @@ public class FoodController {
             @RequestParam boolean nonveg,
             @RequestParam(required = false) String food_category,
                                                  @PathVariable Long restaurantId,
-                                                 @RequestHeader("Authorization")String jwt){
+                                                 @RequestHeader("Authorization")String jwt) throws Exception {
         User user = userService.findUserByJwtToken(jwt);
         List<Food> foods = foodService.getRestaurantsFood(restaurantId,vegetarian,nonveg,seasonal,food_category);
 

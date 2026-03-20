@@ -4,10 +4,12 @@ import com.delivery.Application.model.Category;
 import com.delivery.Application.model.Restaurant;
 import com.delivery.Application.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CategoryServiceImp implements CategoryService{
 
     @Autowired
@@ -17,7 +19,7 @@ public class CategoryServiceImp implements CategoryService{
     private CategoryRepository categoryRepository;
 
     @Override
-    public Category createCategory(String name, Long userId) {
+    public Category createCategory(String name, Long userId) throws Exception {
         Restaurant restaurant = restaurantService.getRestaurantByUserId(userId);
         Category category = new Category();
         category.setName(name);

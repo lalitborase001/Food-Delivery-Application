@@ -77,7 +77,7 @@ public class OrderServiceImpl implements OrderService {
 
         Long totalPrice = cartService.calculateCartTotals(cart);
 
-        createdOrder.setItems(orderItems);
+        createdOrder.setOrderItems(orderItems);
         createdOrder.setTotalPrice(totalPrice);
 
         Order savedOrder = orderRepository.save(createdOrder);
